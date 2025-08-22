@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 31, 41, 55; /* gray-800 */
+  --background-start-rgb: 249, 250, 251; /* gray-50 */
+  --background-end-rgb: 255, 255, 255; /* white */
+}
+
+/* Force light mode for better visibility */
+body {
+  color: rgb(31, 41, 55); /* Force dark text */
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(255, 255, 255)
+    )
+    rgb(249, 250, 251);
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-gray-200 p-6;
+    color: rgb(31, 41, 55) !important; /* Force dark text in cards */
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors duration-200;
+  }
+}
+
+/* Force text visibility in all common elements */
+@layer utilities {
+  .text-visible {
+    color: rgb(31, 41, 55) !important; /* gray-800 */
+  }
+  
+  /* Override any potential dark mode text */
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(31, 41, 55) !important;
+  }
+  
+  p, span, div {
+    color: inherit;
+  }
+  
+  /* Ensure code blocks are visible */
+  code, pre {
+    color: rgb(55, 65, 81) !important; /* gray-700 */
+  }
+}
